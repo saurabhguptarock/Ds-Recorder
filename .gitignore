@@ -12,7 +12,7 @@ src/**/*.js
 *.js.map
 # Only exists if Bazel was run
 /bazel-out
-
+src/environments/
 # dependencies
 /node_modules
 
