@@ -1,14 +1,20 @@
 <div class="container">
-  <h1>⚡ Electron Screen Recorder</h1>
-
   <video></video>
 
-  <button id="startBtn" class="button is-primary">Start</button>
-  <button id="stopBtn" class="button is-warning">Stop</button>
+  <button (click)="startBtnClick()" id="startBtn" class="btn btn-success">
+    Start
+  </button>
+  <button (click)="stopBtnClick()" id="stopBtn" class="btn btn-danger">
+    Stop
+  </button>
 
   <hr />
 
-  <button id="videoSelectBtn" class="button is-text">
+  <button
+    (click)="getVideoSources()"
+    id="videoSelectBtn"
+    class="btn btn-primary"
+  >
     Choose a Video Source
   </button>
 </div>
