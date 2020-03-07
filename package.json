@@ -1,6 +1,6 @@
 {
   "name": "ds-recorder",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "npm-run-all -p electron:serve ng:serve",
@@ -15,25 +15,53 @@
     "electron:linux": "npm run build:prod && electron-builder build --linux",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
     "electron:mac": "npm run build:prod && electron-builder build --mac",
+    "publish": "npm run build:prod && electron-builder build --windows -p always",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
-  "description": "Angular 9 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "build": {
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "saurabhguptarock",
+        "repo": "Ds-Recorder",
+        "releaseType": "release"
+      }
+    ],
+    "appId": "com.saverl.ds_recorder",
+    "productName": "DS Recorder",
+    "copyright": "Copyright © year 2019 ${author}",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "./src/assets/icons/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "./src/assets/icons/icon.ico",
+      "uninstallerIcon": "./src/assets/icons/icon.ico",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "uninstallDisplayName": "${productName} ${version}",
+      "packElevateHelper": true,
+      "unicode": true,
+      "license": "./licence.txt"
+    }
+  },
+  "description": "A Desktop screen recorder made with electron.",
+  "homepage": "https://github.com/saurabhguptarock/Ds-Recorder",
   "author": {
     "name": "Saurabh",
-    "email": "maxime.gris@gmail.com"
+    "email": "saurabhguptarock119@gmail.com"
   },
   "keywords": [
-    "angular",
-    "angular 9",
-    "electron",
-    "typescript",
-    "eslint",
-    "spectron",
-    "sass"
+    "Ds Recorder",
+    "Ds-Recorder",
+    "Ds_Recorder",
+    "Screen Recorder"
   ],
   "main": "main.js",
   "private": true,
@@ -53,6 +81,7 @@
     "perfect-scrollbar": "1.5.0",
     "jquery": "3.4.1",
     "wait-on": "4.0.1",
+    "electron-updater": "4.0.6",
     "sweetalert2": "9.8.2",
     "npm-run-all": "4.1.5",
     "zone.js": "0.10.2",
