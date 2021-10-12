@@ -86,7 +86,7 @@
     "@types/node": "12.11.1",
     "bootstrap": "4.4.1",
     "codelyzer": "5.1.2",
-    "electron": "8.1.0",
+    "electron": "11.5.0",
     "electron-builder": "22.4.0",
     "electron-reload": "1.5.0",
     "electron-updater": "4.2.4",
